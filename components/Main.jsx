@@ -1,34 +1,28 @@
 import { useState } from "react";
+import Box from "./Box";
 
-const Box = () => {
-  const [boxValue, setBoxValue] = useState("");
-  return (
-    <button
-      className="w-20 h-20 bg-blue-200 m-2 transition duration-150 ease-in-out active:scale-95"
-      onClick={() => setBoxValue("X")}
-    >
-      {boxValue}
-    </button>
-  );
-};
 const Main = () => {
+  const [turn, setTurn] = useState("X");
+  const [winner, setWinner] = useState("");
+
   return (
     <div className="place-self-center ">
-      <div className="flex">
-        <Box />
-        <Box />
-        <Box />
-      </div>
-      <div className="flex">
-        <Box />
-        <Box />
-        <Box />
-      </div>
-      <div className="flex">
-        <Box />
-        <Box />
-        <Box />
-      </div>
+      <p className="text-center">
+        {winner !== "" ? `winner:${winner}` : `player:${turn}`}
+      </p>
+      {[0, 3, 6].map((i) => (
+        <div key={i} className="flex">
+          {[0, 1, 2].map((j) => (
+            <Box
+              key={i + j}
+              turn={turn}
+              setTurn={setTurn}
+              index={i + j}
+              setWinner={setWinner}
+            />
+          ))}
+        </div>
+      ))}
     </div>
   );
 };

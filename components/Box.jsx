@@ -23,14 +23,17 @@ const Box = (props) => {
   const [boxValue, setBoxValue] = useState("");
 
   const handleClick = () => {
-    if (boxValue !== "") return;
-    setBoxValue(props.turn);
-    board[props.index] = props.turn;
-    if (checkWin()) {
-      console.log("win");
-      props.setWinner(props.turn);
+    if (props.winner === "" && props.count < 9) {
+      if (boxValue !== "") return;
+      props.setCount(props.count + 1);
+      setBoxValue(props.turn);
+      board[props.index] = props.turn;
+      if (checkWin()) {
+        props.setWinner(props.turn);
+      } else {
+        props.setTurn(props.turn == "X" ? "O" : "X");
+      }
     }
-    props.setTurn(props.turn == "X" ? "O" : "X");
   };
   return (
     <button

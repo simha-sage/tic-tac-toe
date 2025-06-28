@@ -15,7 +15,7 @@ const Main = () => {
         {winner !== ""
           ? `winner:${winner}`
           : count === 9
-          ? `tie`
+          ? `It's a draw!`
           : `player:${turn}`}
       </p>
       {[0, 3, 6].map((i) => (

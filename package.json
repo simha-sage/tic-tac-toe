@@ -2,9 +2,6 @@
   "name": "tic-tac-toe",
   "version": "1.0.0",
   "description": "basic tic tac toe game (2players)",
-  "scripts": {
-    "build": "parcel build index.html --public-url ./"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/simha-sage/tic-tac-toe.git"
@@ -14,7 +11,6 @@
   "bugs": {
     "url": "https://github.com/simha-sage/tic-tac-toe/issues"
   },
-  "homepage": "https://github.com/simha-sage/tic-tac-toe",
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.11",
     "react": "^19.1.0",
@@ -22,6 +18,13 @@
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "parcel": "^2.15.4"
+  },
+  "homepage": "https://simha-sage.github.io/tic-tac-toe",
+  "scripts": {
+    "build": "parcel build index.html --public-url ./tic-tac-toe",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   }
 }

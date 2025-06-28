@@ -2,4 +2,3 @@ node_modules
 .postcssrc
 package-lock.json
 .parcel-cache
-dist
